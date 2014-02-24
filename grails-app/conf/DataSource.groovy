@@ -14,11 +14,15 @@ hibernate {
 
 // environment specific settings
 environments {
-    development {
-        dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
-        }
+    development {		
+		dataSource {
+			dbCreate = "create-drop"
+			driverClassName = "org.postgresql.Driver"
+			dialect = org.hibernate.dialect.PostgreSQLDialect
+			url = "jdbc:postgresql://localhost:5432/geoneuroweb1"
+			username = "geoalban"
+			password = "geodb"
+		}
     }
     test {
         dataSource {
